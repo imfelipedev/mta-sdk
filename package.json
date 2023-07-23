@@ -1,0 +1,17 @@
+{
+    "type": "module",
+    "name": "mta-sdk",
+    "version": "1.0.1",
+    "license": "MIT",
+    "repository": " https://github.com/zFelpszada/mta-sdk",
+    "author": "zfelpszada",
+    "main": "src/index.js",
+    "typings": "src/index.d.ts",
+    "keywords": [
+        "mta"
+    ],
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {}
+}
