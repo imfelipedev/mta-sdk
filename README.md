@@ -64,14 +64,44 @@ After the proper setup, provide the parameters correctly to execute your functio
 
 ```js
 const sdk = new SDK(IP, PORT, USERNAME, PASSWORD, PROTOCOL);
-const result = await sdk.mta.execute(resource, functionName, data);
+const result = await sdk.mta.execute(resource, functionName, object);
 ```
 
 | Parameter      | Type     | Description                                                                   |
 | :------------- | :------- | :---------------------------------------------------------------------------- |
 | `RESOURCE`     | `string` | **Required**. Name of the resource that contains the function to be executed. |
 | `functionName` | `string` | **Required**. Function name to be executed.                                   |
-| `data`         | `string` | **Required**. Data to send.                                                   |
+| `object`       | `object` | **Required**. object containing the information to be sent.                   |
+
+#### Start socket.
+
+```js
+const sdk = new SDK();
+sdk.socket.init(1337, "0.0.0.0", () => {
+    console.log("Socket open in port 1337");
+});
+```
+
+| Parameter  | Type       | Description                                    |
+| :--------- | :--------- | :--------------------------------------------- |
+| `port`     | `string`   | **Required**. Port to open socket.             |
+| `ip`       | `string`   | **Required**. IP to open socket..              |
+| `callback` | `function` | **Required**. Function to receive opening data |
+
+### Here's a basic example with plain socket:
+
+```js
+sdk.socket.on("connection", socket => {
+    console.log("new client");
+
+    socket.on("data", buffer => {
+        const message = buffer.toString().trim();
+        console.log(message);
+    });
+
+    socket.write("Hello from SDK-Socket");
+});
+```
 
 ## Authors
 

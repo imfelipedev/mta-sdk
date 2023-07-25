@@ -2,8 +2,7 @@ import Parser from "../utils/parser.js";
 import timeout from "../utils/timout.js";
 
 export default class API {
-    constructor(core) {
-        this.core = core;
+    constructor() {
         this.cache = {};
     }
 
