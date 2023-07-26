@@ -6,6 +6,7 @@ Library created with the purpose of streamlining development, enabling developer
 
 -   Execute functions
 -   Fetch data from servers or from a server.
+-   Socket
 
 ## API Documentation
 
